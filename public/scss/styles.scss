@@ -1,13 +1,12 @@
 @import "./reset/basic-reset";
 
 $grey: #f7f7f7;
-$darkgrey #b4afaf;
 $black: #1a1a1a;
+$dark: #3e3e3e;
 
 body {
 	background: $grey;
 	font-size: 62.5%;
-
 }
 
 .container{
@@ -17,8 +16,6 @@ body {
 	align-items: flex-start;
 	justify-content: center;
 	flex-direction: column;
-	height: 100vh;
-
 }
 
 img {
@@ -27,7 +24,7 @@ img {
 }
 h1,h2,h3,h4{
 	font-family: 'Lora', serif;
-	font-weight: 900;
+
 	margin-bottom: 2rem;
 }
 h1{
@@ -45,12 +42,29 @@ h1{
 	font-size: 1.4rem;
 }
 
-li{
+.articlegroup{
 	font-size: 1.2rem;
-	padding: 2rem 0;
-	border: 1px solid $darkgrey;
+	padding: 1rem 0;
+
+	list-style: none;
+	li{
+      border-bottom: 1px dashed $dark;
+	  margin-bottom: 2rem;
+	}
 }
 
-ul{
-	list-style: none;
+.mainnav{
+	width: 90%;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	.primary{
+		display: flex;
+		flex-direction: row;
+		list-style: none;
+		margin-left: 1rem;
+		li{
+			margin-left: 1rem;
+		}
+	}
 }

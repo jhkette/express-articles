@@ -1,15 +1,17 @@
 var gulp = require('gulp');
 var uglify = require('gulp-uglify');
-var plumber = require('gulp-plumber');
-var sass = require('gulp-sass');
 var livereload = require('gulp-livereload');
-var sourcemaps = require('gulp-sourcemaps');
+
 var autoprefixer = require('gulp-autoprefixer');
+var plumber = require('gulp-plumber');
+var sourcemaps = require('gulp-sourcemaps');
+var sass = require('gulp-sass');
 
 // File paths
 var DIST_PATH = 'public/dist';
 var SCRIPTS_PATH = 'public/scripts/**/*.js';
 var CSS_PATH = 'public/css/**/*.css';
+
 // // Styles
 // gulp.task('styles', function () {
 // 	console.log('starting styles task');
@@ -28,7 +30,6 @@ var CSS_PATH = 'public/css/**/*.css';
 // 		.pipe(livereload());
 // });
 
-// Styles For SCSS
 // Styles For SCSS
 gulp.task('styles', function () {
 	console.log('starting styles task');
@@ -66,12 +67,12 @@ gulp.task('images', function () {
 gulp.task('default', function () {
 	console.log('Starting default task');
 });
-//
+
 gulp.task('watch', function () {
 	console.log('Starting watch task');
-	require('./app.js');
+	// require('./server.js');
 	livereload.listen();
 	// gulp.watch(SCRIPTS_PATH, ['scripts']);
 	// gulp.watch(CSS_PATH, ['styles']);
-	gulp.watch('public/scss/**/*.scss', ['styles']);
+	gulp.watch('public/scss/**/*.scss', gulp.series('styles'));
 });
