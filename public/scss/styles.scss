@@ -1,6 +1,7 @@
 @import "./reset/basic-reset";
 
 $grey: #f7f7f7;
+$darkgrey #b4afaf;
 $black: #1a1a1a;
 
 body {
@@ -10,7 +11,7 @@ body {
 }
 
 .container{
-	width: 90%;
+	width: 70%;
 	margin: auto;
 	display: flex;
 	align-items: flex-start;
@@ -31,6 +32,9 @@ h1,h2,h3,h4{
 }
 h1{
 	font-size: 2.8rem;
+	border-bottom: 5px solid #4464f0;
+	width: -moz-fit-content;
+	width: fit-content;
 }
 
  p, li {
@@ -39,6 +43,12 @@ h1{
 	margin-bottom: 1.5rem;
 	color: $black;
 	font-size: 1.4rem;
+}
+
+li{
+	font-size: 1.2rem;
+	padding: 2rem 0;
+	border: 1px solid $darkgrey;
 }
 
 ul{
