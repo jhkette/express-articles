@@ -4,24 +4,23 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 mongoose.connect('mongodb://localhost/nodekb');
-let db = mongoose.connection;
+const db = mongoose.connection;
+
 
 
 //check connection
 db.once('open', function(){
     console.log('Connected to MongoDb');
-})
+});
 
 
 //check for db errors
-
 db.on('error', function(err){
     console.log(err)
 });
 
 //init app
 const app = express();
-
 let Article = require('./models/article');
 
 
@@ -31,9 +30,10 @@ app.set('view engine', 'pug');
 
 
 // body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }))
-
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+// set static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // home route
@@ -50,10 +50,7 @@ app.get('/', function(req, res){
         });
        }
     });
-
 });
-
-
 
 app.listen(5000, function(){
     console.log('server started on port 5000');
@@ -80,6 +77,4 @@ app.post('/articles/add', function(req,res){
             res.redirect('/');
         }
     })
-
-
 });

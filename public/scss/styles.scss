@@ -1,0 +1,46 @@
+@import "./reset/basic-reset";
+
+$grey: #f7f7f7;
+$black: #1a1a1a;
+
+body {
+	background: $grey;
+	font-size: 62.5%;
+
+}
+
+.container{
+	width: 90%;
+	margin: auto;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+	height: 100vh;
+
+}
+
+img {
+	margin-bottom: 3rem;
+	padding-left: 6rem;
+}
+h1,h2,h3,h4{
+	font-family: 'Lora', serif;
+	font-weight: 900;
+	margin-bottom: 2rem;
+}
+h1{
+	font-size: 2.8rem;
+}
+
+ p, li {
+	font-family: 'Montserrat', Helvectica, Arial, sans-serif;
+	font-weight: 300;
+	margin-bottom: 1.5rem;
+	color: $black;
+	font-size: 1.4rem;
+}
+
+ul{
+	list-style: none;
+}
