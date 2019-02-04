@@ -12,6 +12,7 @@ var DIST_PATH = 'public/dist';
 var SCRIPTS_PATH = 'public/scripts/**/*.js';
 var CSS_PATH = 'public/css/**/*.css';
 
+/*To minify standard css  */
 // // Styles
 // gulp.task('styles', function () {
 // 	console.log('starting styles task');
@@ -59,7 +60,7 @@ gulp.task('scripts', function () {
 		.pipe(livereload());
 });
 
-// Images
+// Images task
 gulp.task('images', function () {
 	console.log('starting images task');
 });
@@ -70,7 +71,7 @@ gulp.task('default', function () {
 
 gulp.task('watch', function () {
 	console.log('Starting watch task');
-	// require('./server.js');
+
 	livereload.listen();
 	// gulp.watch(SCRIPTS_PATH, ['scripts']);
 	// gulp.watch(CSS_PATH, ['styles']);
