@@ -83,16 +83,14 @@ router.delete('/:id', function(req, res){
   console.log(query);
 
   Article.findById(req.params.id, function(err, article){
-    if(article.author != req.user._id){
-      res.status(500).send();
-    } else {
+
       Article.remove(query, function(err){
         if(err){
           console.log(err);
         }
         res.send('Success');
       });
-    }
+
   });
 });
 
@@ -103,6 +101,9 @@ router.get('/:id', function(req, res){
       res.render('article', {
         article:article
       });
+      if(err){
+          console.log(err);
+      }
 
   });
 });
