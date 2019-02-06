@@ -10,12 +10,21 @@ html
       nav.mainnav
         a.navbar-brand(href='#') Project name
         ul.primary
-          li.active
-            a(href='#') Home
-          li
-            a(href='#about') About
-          li
-            a(href='#contact') Contact            
+           li
+             a(href='/') Home
+             
+           if user
+             li
+               a(href='/articles/add') Add Article
+        ul.nav.navbar-nav.navbar-right
+          if user
+            li 
+              a(href='/users/logout') Logout
+          else
+            li
+              a(href='/users/register') Register
+            li
+              a(href='/users/login') Login          
     != messages('message', locals)
     if errors 
       each error, i in errors
