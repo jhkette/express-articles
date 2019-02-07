@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-/* ADD AN ADMIN USER!!!!!!!!!!!!!!!!!!!!!! */
-
 // Article Model
 let Article = require('../models/article');
 // User Model
@@ -65,7 +63,7 @@ router.get('/edit/:id', ensureAuthenticated, function(req, res){
 router.post('/edit/:id', function(req, res){
   let article = {};
   article.title = req.body.title;
-  article.author = req.body.author;
+  article.author = req.user._id;
   article.body = req.body.body;
 
   let query = {_id:req.params.id}
@@ -90,7 +88,7 @@ router.delete('/:id', function(req, res){
   let query = {_id:req.params.id}
 
   Article.findById(req.params.id, function(err, article){
-    if(article.author !== req.user._id){
+    if(article.author != req.user._id){
       res.status(500).send();
     } else {
       Article.remove(query, function(err){
